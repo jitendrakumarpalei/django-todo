@@ -6,9 +6,9 @@ pipeline {
             steps {
                 echo "build and push docker image"
                 withCredentials([usernamePassword(credentialsId: 'docker-hub-django', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-                    sh 'docker build -t jitendrakumarpalei/django:1.0 .'
+                    sh 'docker build -t jitendrapalei/django:1.0 .'
                     sh "echo $PASS | docker login -u $USER --password-stdin"
-                    sh 'docker push jitendrakumarpalei/django:1.0'
+                    sh 'docker push jitendrapalei/django:1.0'
 
                 }
             }
